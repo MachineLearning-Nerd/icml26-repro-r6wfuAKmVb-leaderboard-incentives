@@ -1,0 +1,20 @@
+{
+  "baseline_git_sha": "a32398bb1ff2fbc18a2c4c6b73ed60557fc37d7c",
+  "compute_policy": {
+    "local": "At most 1 CPU core, expected runtime at most 5 minutes",
+    "remote": "Hugging Face cpu-upgrade for multicore, longer, or uncertain CPU work",
+    "gpu_forbidden": true
+  },
+  "environment_manager": "uv",
+  "fixed_run_command": "uv run --frozen python repro/src/verify.py",
+  "judged_space_revision": "6dbff965ffdf5b7b1e668759d717fc161ee0a793",
+  "live_verdict_dataset_sha256": "fdfa8e14157edbcdfda90d2ac3f4ba572955911be948d67ce33faad9482e1b25",
+  "paper_html_sha256": "3779b433938d92d88d9522ccef506645139eccaf7a2fb5d3f12a5518f8c4cf51",
+  "project_id": "8ea3634c-552d-4d91-b35d-e260be2b6dd6",
+  "python": "3.12",
+  "verdict_filter": {
+    "field": "space_id",
+    "matches": 1,
+    "value": "DineshAI/r6wfuAKmVb"
+  }
+}
