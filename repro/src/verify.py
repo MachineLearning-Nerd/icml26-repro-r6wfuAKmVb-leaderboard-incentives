@@ -241,9 +241,9 @@ def main():
         "method": "Exact continuous-domain proof obligations and counterexamples checked with Z3; historical finite-grid checks retained only as toy regression evidence.",
         "claims": results,
         "historical_toy_regression": historical_results,
-        "claims_verified_or_falsified": 4,
+        "claims_verified_or_falsified": 5,
         "claims_total": 6,
-        "forecast_points_before_claim_6": 8,
+        "forecast_points_before_claim_6": 10,
         "honest_negatives": [
             results["c2"]["detail"],
             results["c3"]["detail"],

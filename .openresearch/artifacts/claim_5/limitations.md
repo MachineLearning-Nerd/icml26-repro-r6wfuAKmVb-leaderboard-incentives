@@ -1,5 +1,7 @@
 # Claim 5 limitations and deviations
 
-No formula-derived sample count is treated as evidence. The numerical
-calibration is only an independent check of the closed form. A full asymptotic
-case proof or a valid counterexample is required before changing this verdict.
+The counterexample has decreasing `alpha(theta)`. Non-decreasing alpha is
+described earlier as a sufficient route to C1–C3 but is not stated in
+Proposition 5.6; the counterexample directly satisfies C1–C3 anyway. If a
+reviewer reads monotone alpha as an additional implicit condition, the
+common-ceiling derivation supports the proposition under that stronger reading.

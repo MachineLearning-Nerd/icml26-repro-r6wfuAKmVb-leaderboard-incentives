@@ -1,5 +1,5 @@
 # Claim 5 evaluation
 
-Current result: `BLOCKED`. The exact special-case derivation is materially
-stronger than the historical curve fit but does not yet discharge the source
-quantifier over model-specific lower and upper bounds.
+Current result: `FALSIFIED`. The counterexample directly contradicts threshold
+existence while satisfying the displayed generalized scaling family, the
+inherited C1–C3 conditions, and `c(e)>=kappa e`.

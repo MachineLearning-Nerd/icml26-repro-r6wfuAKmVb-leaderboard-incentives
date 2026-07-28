@@ -1,8 +1,9 @@
 # Claim 5 method
 
-For a common ceiling, inversion of the two logit curves gives exactly
-`delta(D)=K(1+D)^(1/gamma)-(1+D)`. A constructive bound yields
-`D=O(rho^gamma)=O(lambda^gamma)` for `gamma<1`, with a linear endpoint for
-`gamma=1`. Binary searches independently locate first thresholds over four
-horizons and compare normalized ratios. This route is deliberately not accepted
-as universal evidence.
+Use the continuous family `v(theta,e)=1-1/(2+e+theta)`. It has generalized
+parameters `U=1`, `L=theta/(1+theta)`, `alpha=-log(1+theta)`, and `beta=1`.
+For capabilities one and zero, the lower model beats the higher model at a
+common TbT baseline `D` iff its additional effort is strictly greater than one.
+Thus the required-effort infimum is exactly one for every `D`. With linear cost
+and reward gap two, no stabilizing threshold exists. Z3 checks the cancellation
+for arbitrary nonnegative `D`.

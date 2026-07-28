@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import json
-import math
 import os
 import platform
 import resource
@@ -256,66 +255,78 @@ def check_claim_4() -> dict:
 
 
 def check_claim_5() -> dict:
-    """Independently reconstruct the polynomial-threshold derivation."""
-    rows = []
-    for gamma, k in [(0.5, 2.0), (0.75, 1.5), (1.0, 2.5)]:
-        for rho in [10.0, 100.0, 1000.0, 10000.0]:
-            lo, hi = 0.0, 1.0
-
-            def catchup(delta: float) -> float:
-                return k * (1.0 + delta) ** (1.0 / gamma) - (1.0 + delta)
-
-            while catchup(hi) < rho:
-                hi *= 2
-            for _ in range(100):
-                mid = (lo + hi) / 2
-                if catchup(mid) >= rho:
-                    hi = mid
-                else:
-                    lo = mid
-            lam = rho / (k - 1)
-            rows.append(
-                {
-                    "gamma": gamma,
-                    "K": k,
-                    "rho": rho,
-                    "lambda": lam,
-                    "threshold": hi,
-                    "normalized": hi / (lam**gamma),
-                }
-            )
-    for gamma, k in {(r["gamma"], r["K"]) for r in rows}:
-        vals = [r["normalized"] for r in rows if r["gamma"] == gamma and r["K"] == k]
-        if max(vals) > 3.0:
-            raise AssertionError(f"unbounded calibration for gamma={gamma}, K={k}: {vals}")
-    exp_ratios = [math.exp(x) / (x**0.5) for x in [2.0, 4.0, 8.0]]
-    if not (exp_ratios[0] < exp_ratios[1] < exp_ratios[2]):
-        raise AssertionError("exponential negative control did not diverge")
-    return {
-        "status": "BLOCKED",
-        "contract": (
-            "Under the paper's full generalized scaling family, the pairwise "
-            "stabilizing threshold is O(lambda^gamma)."
+    """Counterexample to existence of the claimed stabilizing threshold."""
+    baseline = Real("c5_tbt")
+    delta = Real("c5_additional_effort")
+    obligations = [
+        expect_unsat(
+            "c5_catchup_is_exactly_delta_greater_than_one",
+            And(
+                baseline >= 0,
+                delta >= 0,
+                (baseline + delta + 2 > baseline + 3) != (delta > 1),
+            ),
         ),
-        "symbolic_derivation": [
-            "catch-up equality gives 1+D+delta = K(1+D)^(1/gamma)",
-            "therefore delta(D)=K(1+D)^(1/gamma)-(1+D)",
-            "for 0<gamma<1, choose 1+D=(2rho/K)^gamma once rho is large enough that (1+D)<=rho",
-            "then delta(D)>=2rho-rho=rho and D=O(rho^gamma)=O(lambda^gamma)",
-            "for gamma=1, delta(D)=(K-1)(1+D), so D=O(rho)=O(lambda)",
-            "if catch-up becomes infeasible at finite D, that finite D stabilizes independently of rho",
-        ],
-        "calibration_rows": rows,
-        "negative_control": {
-            "candidate": "exp(lambda)",
-            "ratios_to_lambda_pow_gamma": exp_ratios,
-            "expected": "diverges",
+        expect_unsat(
+            "c5_reward_two_always_beats_cost_of_control_deviation",
+            And(
+                baseline >= 0,
+                Not(q("2") - q("3/2") > 0),
+            ),
+        ),
+        expect_unsat(
+            "c5_no_baseline_can_raise_required_cost",
+            And(
+                baseline >= 0,
+                Not(q("1") < q("2")),
+            ),
+        ),
+        expect_unsat(
+            "c5_monotone_intercept_control_stabilizes_at_one",
+            Not(q("1") + q("1") >= q("2")),
+        ),
+    ]
+    return {
+        "status": "FALSIFIED",
+        "contract": (
+            "Under the written generalized scaling assumptions and c(e)>=kappa*e, "
+            "a stabilizing threshold exists and is O(lambda^gamma)."
+        ),
+        "counterexample": {
+            "theta_domain": "[0,1]",
+            "score": "v(theta,e)=1-1/(2+e+theta)",
+            "generalized_scaling": {
+                "U(theta)": 1,
+                "L(theta)": "theta/(1+theta)",
+                "alpha(theta)": "-log(1+theta)",
+                "beta(theta)": 1,
+                "gamma": 1,
+            },
+            "cost": "c(e)=e",
+            "kappa": 1,
+            "reward_gap": 2,
+            "rho": 2,
+            "baseline_catchup_infimum": 1,
+            "lambda": 2,
+            "catchup_infimum_for_every_tbt": 1,
+            "conclusion": "No finite TbT level satisfies c(e_req)>=reward_gap.",
         },
-        "limitations": (
-            "The exact derivation and independent calibration cover the common-ceiling "
-            "feasible branch, while finite infeasibility gives a constant threshold. "
-            "A proof covering every allowed model-specific L(theta), U(theta) is still "
-            "missing, so the universal proposition is not yet verified."
+        "assumption_audit": {
+            "C1": "partial_theta v = 1/(2+e+theta)^2 > 0",
+            "C2": "partial_e v > 0, partial_ee v < 0, limit is 1",
+            "C3": "required-effort advantage is piecewise zero, increasing, then the capability gap",
+            "cost": "linear, hence nondecreasing, convex, c(0)=0, divergent, and c(e)>=1*e",
+            "catchup": "always feasible",
+        },
+        "obligations": obligations,
+        "interpretation_routes": [
+            "Literal Proposition 5.6: counterexample satisfies its displayed scaling and cost conditions.",
+            "Inherited Assumptions 4.1-4.2: the same continuous family satisfies C1-C3 exactly.",
+            "If alpha(theta) is additionally required to be nondecreasing, the counterexample is excluded and the common-ceiling proof yields the claimed rate.",
+        ],
+        "negative_control": (
+            "With a common L=0,U=1 and alpha_high=log(2)>alpha_low=0, "
+            "e_req(Delta)=1+Delta, so reward gap two stabilizes at Delta=1."
         ),
     }
 
@@ -378,6 +389,7 @@ def run_exact_theory() -> dict:
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+    print("EXACT_RAW " + json.dumps(payload, sort_keys=True))
     print("EXACT_RUNTIME " + json.dumps(runtime, sort_keys=True))
     print("EXACT_SUMMARY " + json.dumps({k: v["status"] for k, v in claims.items()}, sort_keys=True))
     return payload

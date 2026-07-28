@@ -20,7 +20,7 @@ Every failed proof obligation raises an exception, so the command exits nonzero.
 | 2 | Proposition 4.3: every PNE preserves capability order under Assumptions 4.1–4.2 | Assumption-satisfying exact counterexample plus independent checker | FALSIFIED |
 | 3 | Theorem 4.6: just-overtake inequality implies no PNE | Assumption-satisfying exact counterexample to the all-zero-only step | FALSIFIED |
 | 4 | The abstract/Section 5 unique-equilibrium conclusion, together with Proposition 5.3 monotonicity | Two distinct nonzero PNE persist at every TbT level; formal Proposition 5.3 alone is not contradicted | FALSIFIED |
-| 5 | Proposition 5.6: threshold is `O(lambda^gamma)` over the full generalized scaling family | Exact common-ceiling derivation and independent calibration, but not the full model-specific-bound family | BLOCKED |
+| 5 | Proposition 5.6: a stabilizing threshold exists and is `O(lambda^gamma)` over the generalized scaling family | Exact continuous counterexample with model-specific lower bound and constant catch-up effort | FALSIFIED |
 | 6 | Figure 1: Winogrande fit gives 384,668 additional steps at TbT 3,000 | Not part of this theorem-contract node | BLOCKED |
 
 ## Shared assumptions and numerical audit
@@ -63,7 +63,7 @@ runtime, limitations, and deviations after the formal experiment completes.
 | 2 | This page | yes | counterexample inline | `outputs/exact_theory.json` | independent | strict linear cost | yes | pending formal run |
 | 3 | This page | yes | counterexample inline | `outputs/exact_theory.json` | independent | strict linear cost | yes | pending formal run |
 | 4 | This page | yes | two PNE inline | `outputs/exact_theory.json` | independent | strict linear cost | aggregate claim; formal subclaim separated | pending formal run |
-| 5 | This page | yes | limitation inline | `outputs/exact_theory.json` | independent | exponential growth | no—full family unresolved | BLOCKED |
+| 5 | This page | yes | counterexample inline | `outputs/exact_theory.json` | independent | monotone-intercept family stabilizes | yes | pending formal run |
 | 6 | This page | not yet | no | no | no | no | no | BLOCKED |
 
 This is a research candidate, not a live-judge result. The previous live judged

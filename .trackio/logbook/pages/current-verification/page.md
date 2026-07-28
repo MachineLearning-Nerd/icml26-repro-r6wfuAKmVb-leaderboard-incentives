@@ -30,10 +30,16 @@ Assumption but makes every effort through one free.
   all zero is not. Because the common baseline cancels from score comparisons,
   no TbT level restores uniqueness in this admitted game.
 
-Replacing the flat cost by `c(e)=e` destroys each counterexample for the
-intended reason. Claim 1’s below-threshold reward-gap control instead makes all
-zero a PNE. Claim 5’s exponential candidate fails the polynomial bounded-ratio
-check.
+Replacing the flat cost by `c(e)=e` destroys each claims 2–4 counterexample for
+the intended reason. Claim 1’s below-threshold reward-gap control instead makes
+all zero a PNE.
+
+For claim 5, `v(theta,e)=1-1/(2+e+theta)` is an exact generalized-logit family
+that satisfies C1–C3. Between capabilities one and zero, required catch-up
+effort is always one, at every TbT baseline. With linear cost and reward gap
+two, stabilization never occurs, contradicting Proposition 5.6’s existence
+claim. The control with common lower bound and monotone alpha has catch-up
+effort `1+Delta` and stabilizes at `Delta=1`.
 
 ## Formal run record
 
