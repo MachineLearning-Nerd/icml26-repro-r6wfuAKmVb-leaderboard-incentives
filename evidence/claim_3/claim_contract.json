@@ -1,0 +1,17 @@
+{
+  "claim": 3,
+  "paper_anchor": "Section 4, Theorem 4.6",
+  "quantifier": "If any adjacent just-overtake cost is strictly below its reward gap, the admitted follower game has no PNE.",
+  "verdict_target": "FALSIFIED",
+  "counterexample": {
+    "capabilities": [1, 0.5],
+    "efforts": [1, 1],
+    "score": "1-exp(-(theta+e))",
+    "cost": "max(e-1,0)^2",
+    "rewards": [0.1, 0],
+    "baseline_overtake_cost": 0,
+    "reward_gap": 0.1
+  },
+  "acceptance": "The just-overtake antecedent and every written assumption hold, yet the displayed profile is a PNE.",
+  "failure": "The antecedent, any assumption, or any PNE condition fails."
+}

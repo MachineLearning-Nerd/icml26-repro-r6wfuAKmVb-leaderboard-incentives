@@ -1,6 +1,8 @@
 # Current verification run
 
-The fixed experiment command is:
+The tested current verifier is [`repro/src/verify.py`](/repro/src/verify.py) at
+Git SHA `8f8494d23146f77a0ed25520f32e9574df9e43be`. It supersedes the old
+finite-grid verifier under **Historical rejected baseline**.
 
 ```bash
 uv run --frozen python repro/src/verify.py
@@ -8,52 +10,54 @@ uv run --frozen python repro/src/verify.py
 
 ## Failure semantics
 
-The exact verifier constructs continuous-domain Z3 obligations. Every obligation
-must be `unsat`, meaning no counterexample exists to the stated local proof
-step. A satisfiable or unknown result raises `AssertionError`. A separately
-implemented checker reads only `outputs/exact_theory.json`, validates verdicts,
-proof-obligation results, calibration bounds, and the negative control, and
-also exits nonzero on mismatch.
+The exact verifier constructs continuous-domain Z3 obligations. Every
+obligation must be `unsat`, meaning no counterexample exists to its local proof
+step. A satisfiable or unknown result raises `AssertionError`. Separately
+implemented readers validate the raw JSON, verdicts, calibration bounds, and
+negative controls. Any mismatch exits nonzero.
 
-## Counterexamples
+The successful cumulative run
+`7edf2d16-e61f-4a50-8c08-3fa3f022006a` printed:
 
-For claims 2–4, the flat cost `max(e-1,0)^2` satisfies the paper’s written Cost
-Assumption but makes every effort through one free.
+```text
+EXACT_SUMMARY {"c1":"VERIFIED","c2":"FALSIFIED","c3":"FALSIFIED","c4":"FALSIFIED","c5":"FALSIFIED"}
+INDEPENDENT_CHECKER PASS
+CLAIM6_INDEPENDENT_CHECKER PASS
+{"rounded": 384668, "status": "BLOCKED"}
+```
 
-- Claim 2: rewards `[1,1]`, efforts `[0,3/4]`. Both players attain the maximum
-  utility one, so this is a PNE, while the lower-capability model strictly
-  outranks the higher-capability model.
-- Claim 3: rewards `[1/10,0]`, efforts `[1,1]`. This is a PNE. At all zero, the
-  required overtake-effort infimum is `1/2`, its cost is zero, and zero is
-  strictly below the reward gap `1/10`.
-- Claim 4: for every `Delta_tbt >= 0`, both `[1,0]` and `[1,1]` are PNE, while
-  all zero is not. Because the common baseline cancels from score comparisons,
-  no TbT level restores uniqueness in this admitted game.
+All historical claim 1–5 regressions also printed `PASS`.
 
-Replacing the flat cost by `c(e)=e` destroys each claims 2–4 counterexample for
-the intended reason. Claim 1’s below-threshold reward-gap control instead makes
-all zero a PNE.
+## Evidence map
 
-For claim 5, `v(theta,e)=1-1/(2+e+theta)` is an exact generalized-logit family
-that satisfies C1–C3. Between capabilities one and zero, required catch-up
-effort is always one, at every TbT baseline. With linear cost and reward gap
-two, stabilization never occurs, contradicting Proposition 5.6’s existence
-claim. The control with common lower bound and monotone alpha has catch-up
-effort `1+Delta` and stabilizes at `Delta=1`.
+- Cumulative entrypoint: [`verify.py`](/repro/src/verify.py)
+- Exact theory verifier: [`exact_theory.py`](/repro/src/exact_theory.py)
+- Figure verifier: [`claim6_figure.py`](/repro/src/claim6_figure.py)
+- Independent checkers: [`check_exact_theory.py`](/repro/src/check_exact_theory.py)
+  and [`check_claim6.py`](/repro/src/check_claim6.py)
+- Raw theory output: [`exact_theory.json`](/outputs/exact_theory.json)
+- Raw Figure output:
+  [`claim6_reconstruction.json`](/outputs/claim6_reconstruction.json)
+- Compact verdict: [`verdict.json`](/outputs/verdict.json)
+- Pinned environment: [`pyproject.toml`](/pyproject.toml),
+  [`uv.lock`](/uv.lock), [`.python-version`](/.python-version)
+- Paper/source hash audit:
+  [`source_audit.md`](/evidence/startup/source_audit.md)
+- Complete command record:
+  [`commands.md`](/reports/reproduction/commands.md)
+- Illustrated report:
+  [`report.md`](/reports/reproduction/report.md)
 
-## Formal run record
+## Compute
 
-The formal run has not yet completed on this branch. Until raw output and the
-independent checker result are captured here, this page is **not release-ready**.
+Both components were estimated at one core and under five minutes and therefore
+used the authorized local backend. The theorem component used 0.01955 seconds
+wall and 0.9906 mean CPU core. Figure reconstruction used 0.61023 seconds wall
+and 0.06036 mean core. Selected remote flavor: none. Hugging Face compute cost:
+zero. GPU use: none.
 
-## Figure 1 reconstruction
+## Limitation
 
-The claim-6 verifier retrieves the exact arXiv source bundle, verifies its hash,
-and calibrates the unique right-panel vector path from the labeled tick marks.
-Its expected endpoint at TbT 3,000 is 384,667.56, rounding to 384,668. An
-endpoint-blind extrapolation from the preceding 30 vector points, three
-independent TeX anchors, and a falsification search provide separate checks.
-
-This remains BLOCKED as an empirical reproduction because the source archive
-does not include the underlying Winogrande measurements or fit parameters. The
-published display is reproducible; the training-and-fit pipeline is not.
+Claim 6 remains BLOCKED. The exact source display is reproducible, but the
+arXiv bundle contains no raw Winogrande measurements, fit parameters, training
+code, or checkpoints, so the empirical fit cannot be independently rerun.

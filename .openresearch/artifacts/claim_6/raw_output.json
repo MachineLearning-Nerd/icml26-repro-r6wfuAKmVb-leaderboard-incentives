@@ -17,7 +17,7 @@
       "raw_y": 384667.5594951132,
       "rounded_y": 384668,
       "route": "direct_vector_coordinate_calibrated_from_labeled_ticks",
-      "x": 3000,
+      "x": 3000.0,
       "x_tick_count": 7,
       "y_tick_count": 9
     },
@@ -47,7 +47,7 @@
       "direct_vector_endpoint": 384667.5594951132,
       "held_out_x": 3000,
       "prediction": 384648.7961118833,
-      "relative_error": 0.00004877817940907434,
+      "relative_error": 4.877817940907434e-05,
       "route": "endpoint_blind_extrapolation",
       "selected_degree_declared_before_endpoint_check": 6,
       "training_points": 30
@@ -98,11 +98,11 @@
     "backend": "local",
     "estimated_required_cores": 1,
     "estimated_runtime": "under 5 minutes",
-    "mean_cpu_cores_used": 0.09618311934179904,
-    "process_cpu_seconds": 0.051196999999999715,
+    "mean_cpu_cores_used": 0.06035802755522491,
+    "process_cpu_seconds": 0.036831999999999976,
     "seed": null,
     "selected_flavor": null,
-    "wall_seconds": 0.532286750007188
+    "wall_seconds": 0.6102253750141244
   },
   "source": {
     "bundle_sha256": "9f6d8668713011bee867b6c83a8e88a5f6b9cec201cc1806a30c891b11106ae8",

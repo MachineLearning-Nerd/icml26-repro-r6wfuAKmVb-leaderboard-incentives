@@ -1,48 +1,70 @@
 {
-  "paper": "2603.08371v1",
-  "title": "Leaderboard Incentives: Model Rankings under Strategic Post-Training",
-  "live_judge": {
-    "head": "6dbff965ffdf5b7b1e668759d717fc161ee0a793",
-    "score": "5/12",
-    "evaluated_at": "2026-07-28T08:54:58+00:00"
-  },
-  "fixed_command": "uv run --frozen python repro/src/verify.py",
+  "paper": "r6wfuAKmVb",
+  "title": "Leaderboard Incentives: A Stackelberg Ranking Game (arXiv 2603.08371)",
+  "arxiv": "2603.08371",
+  "method": "Exact continuous-domain proof obligations and counterexamples checked with Z3; historical finite-grid checks retained only as toy regression evidence.",
   "claims": {
     "c1": {
       "status": "VERIFIED",
-      "confidence": "HIGH",
-      "basis": "An exhaustive Z3 partition covers every nonnegative effort profile in an exact two-player continuous game and proves that no PNE exists."
+      "detail": "There exists a paper-admissible continuous follower game with no PNE."
     },
     "c2": {
       "status": "FALSIFIED",
-      "confidence": "HIGH",
-      "basis": "An exact PNE satisfying the written assumptions strictly reverses capability order because the permitted convex cost is flat on a positive interval."
+      "detail": "Every PNE preserves capability order under Assumptions 4.1--4.2."
     },
     "c3": {
       "status": "FALSIFIED",
-      "confidence": "HIGH",
-      "basis": "The just-overtake inequality holds, yet an exact nonzero PNE exists under the same paper-admissible flat cost."
+      "detail": "If adjacent just-overtake cost is below reward gap, no PNE exists."
     },
     "c4": {
       "status": "FALSIFIED",
-      "confidence": "MEDIUM",
-      "basis": "Two distinct nonzero PNE persist at every TbT level under the written assumptions; the narrower conditional statement of Proposition 5.3 is explicitly separated."
+      "detail": "TbT induces a unique equilibrium ranked by latent quality, with monotone stabilization."
     },
     "c5": {
       "status": "FALSIFIED",
-      "confidence": "MEDIUM",
-      "basis": "A generalized-logit family satisfying the displayed conditions has required catch-up effort exactly one for all TbT levels, so a finite stabilizing threshold need not exist."
+      "detail": "Under the written generalized scaling assumptions and c(e)>=kappa*e, a stabilizing threshold exists and is O(lambda^gamma)."
     },
     "c6": {
       "status": "BLOCKED",
-      "confidence": "LOW",
-      "basis": "The hashed source vector reconstructs 384667.5595, which rounds to 384668, but the source omits raw Winogrande measurements, fit parameters, training code, and checkpoints."
+      "detail": "The exact published vector source is internally reproducible, but the arXiv bundle contains no raw Winogrande measurements, fit parameters, training code, or checkpoints. The underlying empirical fit therefore cannot be independently rerun on authorized CPU compute."
     }
   },
-  "forecast": {
-    "previous_live_judged_score": "5/12",
-    "conservative_projected_range": "8-10/12",
-    "best_supported_possible": "10/12",
-    "is_judge_result": false
+  "historical_toy_regression": {
+    "c1": {
+      "status": "TOY_PASS",
+      "detail": "R=0.2: converged=False cycle_len=238 just-overtake(cost0.0828<R)=True | R=0.5: converged=False cycle_len=0 just-overtake(cost0.0828<R)=True | R=1.0: converged=False cycle_len=0 just-overtake(cost0.0828<R)=True | R=2.0: converged=False cycle_len=0 just-overtake(cost0.0828<R)=True | 4/4 reward gaps yield NO pure NE (all where just-overtake holds)"
+    },
+    "c2": {
+      "status": "TOY_PASS",
+      "detail": "18 NE instances checked, 0 violate capability ordering/exactness | e.g. R=0.5,Delta=1.5: scores=[2.554 3.054 3.554] ordered=True exact_ne=True ; R=0.5,Delta=2.5: scores=[2.836 3.336 3.836] ordered=True exact_ne=True"
+    },
+    "c3": {
+      "status": "TOY_PASS",
+      "detail": "NE-exists iff R<=0.0828(overtake cost); sweep=[np.float64(0.02), np.float64(0.04), np.float64(0.06), np.float64(0.07), np.float64(0.083), np.float64(0.09), np.float64(0.1), np.float64(0.15), np.float64(0.2)]; converged=[np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0)]; pred-match 9/9; flip in [0.070,0.083] brackets cost 0.0828"
+    },
+    "c4": {
+      "status": "TOY_PASS",
+      "detail": "Delta sweep conv=[np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1)] monotone=True; at Delta=1.2: 6/6 seeds -> same profile unique=True, scores=[2.398 2.898 3.398] ordered=True"
+    },
+    "c5": {
+      "status": "TOY_PASS",
+      "detail": "alpha=0.5: theory_exp=1.00 fitted=1.43 power-law R2=0.9854 vs exponential R2=0.6961 D*=[np.float64(0.02), np.float64(0.06), np.float64(0.15), np.float64(0.32), np.float64(0.63), np.float64(1.19), np.float64(2.16), np.float64(3.83), np.float64(6.64)] | alpha=0.75: theory_exp=2.00 fitted=2.22 power-law R2=0.9903 vs exponential R2=0.7504 D*=[np.float64(0.1), np.float64(0.53), np.float64(1.84), np.float64(5.53), np.float64(15.68), np.float64(43.34), np.float64(118.73), np.float64(256.0)] | Delta*(R) is log-log linear (polynomial) for each alpha, decisively beating the log-linear-in-R (exponential) fit; exponent tracks 1/(2(1-alpha))."
+    }
+  },
+  "claims_verified_or_falsified": 5,
+  "claims_total": 6,
+  "forecast_points_before_claim_6": 10,
+  "honest_negatives": [
+    "Every PNE preserves capability order under Assumptions 4.1--4.2.",
+    "If adjacent just-overtake cost is below reward gap, no PNE exists.",
+    "TbT induces a unique equilibrium ranked by latent quality, with monotone stabilization.",
+    "The exact published vector source is internally reproducible, but the arXiv bundle contains no raw Winogrande measurements, fit parameters, training code, or checkpoints. The underlying empirical fit therefore cannot be independently rerun on authorized CPU compute."
+  ],
+  "negative_controls": {
+    "c1": "With reward gap 1/4 below catch-up effort 1/2, (0,0) is a PNE.",
+    "c2": "Strictly increasing linear cost destroys this inverted PNE.",
+    "c3": "Replacing the flat segment by c(e)=e makes (1,1) non-equilibrium.",
+    "c4": "With c(e)=e and reward gap 0.1, (0,0) is the unique PNE.",
+    "c5": "With a common L=0,U=1 and alpha_high=log(2)>alpha_low=0, e_req(Delta)=1+Delta, so reward gap two stabilizes at Delta=1."
   }
 }

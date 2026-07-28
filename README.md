@@ -19,7 +19,9 @@ judge results.
 
 Read the illustrated [reproduction report](reports/reproduction/report.md), the
 [complete command record](reports/reproduction/commands.md), or the
-[self-contained marimo tutorial](leaderboard_incentives_reproduction.py).
+[release report](reports/reproduction/release-report.md). The
+[self-contained marimo tutorial](leaderboard_incentives_reproduction.py)
+opens directly on the central evidence.
 
 ## Claim summary
 
@@ -48,7 +50,8 @@ The exact command in every formal node is
 | [`orx/exact-theorem-contracts`](https://github.com/MachineLearning-Nerd/icml26-repro-r6wfuAKmVb-leaderboard-incentives/tree/orx/exact-theorem-contracts) | exact contracts for claims 1–4 | `uv run --frozen python repro/src/verify.py` | c1 VERIFIED; c2–c4 FALSIFIED | local CPU |
 | [`orx/full-generalized-scaling-proof`](https://github.com/MachineLearning-Nerd/icml26-repro-r6wfuAKmVb-leaderboard-incentives/tree/orx/full-generalized-scaling-proof) | test Proposition 5.6 over model-specific bounds | `uv run --frozen python repro/src/verify.py` | c5 FALSIFIED; cumulative checker passes | local CPU |
 | [`orx/figure-1-source-reconstruction`](https://github.com/MachineLearning-Nerd/icml26-repro-r6wfuAKmVb-leaderboard-incentives/tree/orx/figure-1-source-reconstruction) | hashed Figure 1 reconstruction and four claim-6 routes | `uv run --frozen python repro/src/verify.py` | displayed number reproduced; empirical claim BLOCKED | local CPU |
-| [`orx/evaluator-visible-release-candidate`](https://github.com/MachineLearning-Nerd/icml26-repro-r6wfuAKmVb-leaderboard-incentives/tree/orx/evaluator-visible-release-candidate) | cumulative evidence and publication gates | `uv run --frozen python repro/src/verify.py` | pending final release-gate run | local CPU |
+| [`orx/evaluator-visible-release-candidate`](https://github.com/MachineLearning-Nerd/icml26-repro-r6wfuAKmVb-leaderboard-incentives/tree/orx/evaluator-visible-release-candidate) | cumulative evidence and reader-facing artifacts | `uv run --frozen python repro/src/verify.py` | all regressions, exact checks, controls, and independent checkers pass | local CPU |
+| [`orx/publication-gate-and-canonical-release`](https://github.com/MachineLearning-Nerd/icml26-repro-r6wfuAKmVb-leaderboard-incentives/tree/orx/publication-gate-and-canonical-release) | canonical per-claim pages and immutable publication gate | `uv run --frozen python repro/src/verify.py` | pending final release-gate run | local CPU |
 
 ## Reproduce
 

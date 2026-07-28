@@ -1,0 +1,9 @@
+{
+  "estimate_before_run": {
+    "cores": 1,
+    "runtime": "under 5 minutes",
+    "backend": "local",
+    "flavor": null
+  },
+  "actual": "Emitted in outputs/exact_theory.json and the orx run log."
+}

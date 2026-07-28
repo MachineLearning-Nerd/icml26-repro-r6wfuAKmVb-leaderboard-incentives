@@ -1,0 +1,21 @@
+{
+  "claim": 5,
+  "paper_anchor": "Section 5, Proposition 5.6",
+  "quantifier": "For the full generalized scaling family with c(e)>=kappa*e, a stabilizing pairwise TbT threshold exists and is O(lambda^gamma) where catch-up remains feasible.",
+  "verdict_target": "FALSIFIED",
+  "counterexample": {
+    "theta_domain": "[0,1]",
+    "score": "1-1/(2+e+theta)",
+    "cost": "e",
+    "reward_gap": 2,
+    "catchup_infimum_for_every_tbt": 1,
+    "generalized_parameters": {
+      "U(theta)": "1",
+      "L(theta)": "theta/(1+theta)",
+      "alpha(theta)": "-log(1+theta)",
+      "beta(theta)": "1"
+    }
+  },
+  "acceptance": "The continuous family satisfies the displayed generalized scaling, inherited C1-C3, and linear-cost condition, while no finite TbT level stabilizes.",
+  "failure": "Any written assumption fails or catch-up ceases to be feasible."
+}

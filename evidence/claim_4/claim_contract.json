@@ -1,0 +1,14 @@
+{
+  "claim": 4,
+  "paper_anchor": "Abstract and Section 5; Proposition 5.3 is the monotonic subclaim",
+  "quantifier": "Under the written mild conditions, sufficiently large TbT induces a unique all-zero PNE ranked by capability; once all-zero is a PNE, it remains one at larger TbT.",
+  "verdict_target": "FALSIFIED for the aggregate uniqueness claim; Proposition 5.3 alone not contradicted",
+  "counterexample": {
+    "all_tbt_levels": true,
+    "pne_profiles": [[1, 0], [1, 1]],
+    "all_zero_is_pne": false,
+    "cost": "max(e-1,0)^2"
+  },
+  "acceptance": "Two distinct PNE persist for every nonnegative common TbT baseline under all written assumptions.",
+  "failure": "Either profile has a profitable deviation at any TbT level."
+}

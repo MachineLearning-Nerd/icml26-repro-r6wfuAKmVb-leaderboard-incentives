@@ -258,16 +258,17 @@
     "backend": "local",
     "estimated_required_cores": 1,
     "estimated_runtime": "under 5 minutes",
-    "git_sha": "93d5371664a6c4c3cd2048f74a653c2cc3a52615",
+    "git_sha": "8f8494d23146f77a0ed25520f32e9574df9e43be",
     "host_visible_logical_cpus": 8,
-    "max_rss_kib": 95928320,
-    "mean_cpu_cores_used": 0.9927631544810535,
+    "max_rss_native": 92749824,
+    "max_rss_native_unit": "bytes",
+    "mean_cpu_cores_used": 0.9906124025690665,
     "platform": "macOS-26.5.2-arm64-arm-64bit",
-    "process_cpu_seconds": 0.020845999999999698,
+    "process_cpu_seconds": 0.019368000000000052,
     "python": "3.12.11",
     "seed": null,
     "selected_flavor": null,
-    "wall_seconds": 0.02099795898539014
+    "wall_seconds": 0.019551542005501688
   },
   "verdict_rule": "Any failed proof obligation raises and exits nonzero."
 }
