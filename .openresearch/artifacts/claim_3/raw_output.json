@@ -1,0 +1,44 @@
+{
+  "contract": "If adjacent just-overtake cost is below reward gap, no PNE exists.",
+  "counterexample": {
+    "baseline_overtake_cost": 0,
+    "cost": "max(e-1,0)^2",
+    "efforts": [
+      1,
+      1
+    ],
+    "pne_exists": true,
+    "reward_gap": 0.1,
+    "rewards": [
+      0.1,
+      0
+    ],
+    "score": "1-exp(-(theta+e))",
+    "theta_high": 1,
+    "theta_low": 0.5
+  },
+  "negative_control": "Replacing the flat segment by c(e)=e makes (1,1) non-equilibrium.",
+  "obligations": [
+    {
+      "obligation": "c3_lower_model_has_no_profitable_deviation",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c3_high_model_has_no_profitable_deviation",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c3_written_just_overtake_antecedent_holds",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c3_linear_cost_control_has_profitable_drop",
+      "result": "unsat",
+      "solver": "z3"
+    }
+  ],
+  "status": "FALSIFIED"
+}

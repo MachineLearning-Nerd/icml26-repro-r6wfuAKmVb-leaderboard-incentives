@@ -1,0 +1,47 @@
+{
+  "contract": "TbT induces a unique equilibrium ranked by latent quality, with monotone stabilization.",
+  "counterexample": {
+    "all_delta_nonnegative": true,
+    "all_zero_is_pne": false,
+    "pne_profiles": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "profitable_all_zero_deviation": [
+      0,
+      0.75
+    ],
+    "reason_delta_cancels": "rank compares theta_i+Delta+e_i"
+  },
+  "formal_subclaim": "Proposition 5.3 itself is not contradicted; its antecedent is never true here.",
+  "negative_control": "With c(e)=e and reward gap 0.1, (0,0) is the unique PNE.",
+  "obligations": [
+    {
+      "obligation": "c4_profile_1_0_lower_no_profitable_deviation",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c4_profile_1_1_lower_no_profitable_deviation",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c4_high_already_at_maximum_payoff",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c4_all_zero_has_profitable_deviation",
+      "result": "unsat",
+      "solver": "z3"
+    }
+  ],
+  "status": "FALSIFIED"
+}

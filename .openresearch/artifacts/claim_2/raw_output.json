@@ -1,0 +1,53 @@
+{
+  "assumption_audit": {
+    "C1": "d v/d theta = exp(-(theta+e)) > 0",
+    "C2": "d v/d e > 0, d2 v/d e2 < 0, limit 1",
+    "C3": "effort advantage is piecewise 0, increasing, then theta gap",
+    "cost": "nonnegative, nondecreasing, convex, c(0)=0, divergent"
+  },
+  "contract": "Every PNE preserves capability order under Assumptions 4.1--4.2.",
+  "counterexample": {
+    "cost": "max(e-1,0)^2",
+    "efforts": [
+      0,
+      0.75
+    ],
+    "rewards": [
+      1,
+      1
+    ],
+    "score": "1-exp(-(theta+e))",
+    "scores_order": "lower capability strictly higher",
+    "theta_high": 1,
+    "theta_low": 0.5
+  },
+  "negative_control": "Strictly increasing linear cost destroys this inverted PNE.",
+  "obligations": [
+    {
+      "obligation": "c2_no_profitable_deviation_equal_rewards",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c2_ranking_is_strictly_inverted",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c2_effort_is_in_flat_cost_region",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c2_linear_cost_control_still_overtakes",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c2_linear_cost_control_profitable_reduction",
+      "result": "unsat",
+      "solver": "z3"
+    }
+  ],
+  "status": "FALSIFIED"
+}

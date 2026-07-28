@@ -1,0 +1,11 @@
+{
+  "run_id": "75e9d7b5-a1bc-4001-a5b4-55659a898285",
+  "backend": "local",
+  "estimated_required_cores": 1,
+  "estimated_runtime": "under 5 minutes",
+  "mean_cpu_cores_used": 0.09618311934179904,
+  "process_cpu_seconds": 0.051196999999999715,
+  "seed": null,
+  "selected_flavor": null,
+  "wall_seconds": 0.532286750007188
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440">
+  <rect width="960" height="440" fill="#fbfaf7"/>
+  <text x="48" y="48" font-family="sans-serif" font-size="24" font-weight="700" fill="#17202a">Figure 1: exact endpoint, missing empirical pipeline</text>
+  <g transform="translate(78,84)">
+    <line x1="0" y1="285" x2="520" y2="285" stroke="#17202a" stroke-width="2"/>
+    <line x1="0" y1="285" x2="0" y2="12" stroke="#17202a" stroke-width="2"/>
+    <path d="M0 285 C130 283 250 255 350 184 C420 132 470 74 500 24" fill="none" stroke="#d62728" stroke-width="6"/>
+    <circle cx="500" cy="24" r="8" fill="#d62728"/>
+    <line x1="500" y1="24" x2="500" y2="285" stroke="#52606d" stroke-dasharray="6 5"/>
+    <text x="500" y="312" text-anchor="middle" font-family="sans-serif" font-size="15">TbT 3,000</text>
+    <text x="300" y="64" font-family="sans-serif" font-size="15" font-weight="700" fill="#a40e4c">384,667.5595 → 384,668</text>
+    <text x="10" y="16" font-family="sans-serif" font-size="14">additional steps</text>
+  </g>
+  <g transform="translate(620,102)" font-family="sans-serif">
+    <text x="0" y="0" font-size="16" font-weight="700" fill="#238636">Source checks pass</text>
+    <text x="0" y="30" font-size="14">✓ exact arXiv hash</text>
+    <text x="0" y="56" font-size="14">✓ vector coordinate</text>
+    <text x="0" y="82" font-size="14">✓ held-out endpoint</text>
+    <text x="0" y="108" font-size="14">✓ three TeX anchors</text>
+    <text x="0" y="154" font-size="16" font-weight="700" fill="#6e7781">Still BLOCKED</text>
+    <text x="0" y="182" font-size="14">raw measurements absent</text>
+    <text x="0" y="206" font-size="14">fit parameters absent</text>
+  </g>
+</svg>

@@ -1,0 +1,273 @@
+{
+  "claims": {
+    "c1": {
+      "contract": "There exists a paper-admissible continuous follower game with no PNE.",
+      "negative_control": "With reward gap 1/4 below catch-up effort 1/2, (0,0) is a PNE.",
+      "obligations": [
+        {
+          "obligation": "c1_high_wins_above_boundary_can_reduce",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c1_high_wins_at_low_boundary_is_overtaken",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c1_high_wins_at_positive_boundary_is_overtaken",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c1_low_wins_middle_high_can_tie_and_win",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c1_low_wins_high_can_reduce",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c1_negative_control_zero_is_pne",
+          "result": "unsat",
+          "solver": "z3"
+        }
+      ],
+      "parameters": {
+        "cost": "e",
+        "rewards": [
+          1,
+          0
+        ],
+        "score": "1-exp(-(theta+e))",
+        "theta_high": 1,
+        "theta_low": 0.5,
+        "tie_break": "higher capability"
+      },
+      "proof": "Exhaustive partition of every nonnegative effort pair: high-capability winner above/boundary cases and low-capability winner middle/high cases.",
+      "status": "VERIFIED"
+    },
+    "c2": {
+      "assumption_audit": {
+        "C1": "d v/d theta = exp(-(theta+e)) > 0",
+        "C2": "d v/d e > 0, d2 v/d e2 < 0, limit 1",
+        "C3": "effort advantage is piecewise 0, increasing, then theta gap",
+        "cost": "nonnegative, nondecreasing, convex, c(0)=0, divergent"
+      },
+      "contract": "Every PNE preserves capability order under Assumptions 4.1--4.2.",
+      "counterexample": {
+        "cost": "max(e-1,0)^2",
+        "efforts": [
+          0,
+          0.75
+        ],
+        "rewards": [
+          1,
+          1
+        ],
+        "score": "1-exp(-(theta+e))",
+        "scores_order": "lower capability strictly higher",
+        "theta_high": 1,
+        "theta_low": 0.5
+      },
+      "negative_control": "Strictly increasing linear cost destroys this inverted PNE.",
+      "obligations": [
+        {
+          "obligation": "c2_no_profitable_deviation_equal_rewards",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c2_ranking_is_strictly_inverted",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c2_effort_is_in_flat_cost_region",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c2_linear_cost_control_still_overtakes",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c2_linear_cost_control_profitable_reduction",
+          "result": "unsat",
+          "solver": "z3"
+        }
+      ],
+      "status": "FALSIFIED"
+    },
+    "c3": {
+      "contract": "If adjacent just-overtake cost is below reward gap, no PNE exists.",
+      "counterexample": {
+        "baseline_overtake_cost": 0,
+        "cost": "max(e-1,0)^2",
+        "efforts": [
+          1,
+          1
+        ],
+        "pne_exists": true,
+        "reward_gap": 0.1,
+        "rewards": [
+          0.1,
+          0
+        ],
+        "score": "1-exp(-(theta+e))",
+        "theta_high": 1,
+        "theta_low": 0.5
+      },
+      "negative_control": "Replacing the flat segment by c(e)=e makes (1,1) non-equilibrium.",
+      "obligations": [
+        {
+          "obligation": "c3_lower_model_has_no_profitable_deviation",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c3_high_model_has_no_profitable_deviation",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c3_written_just_overtake_antecedent_holds",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c3_linear_cost_control_has_profitable_drop",
+          "result": "unsat",
+          "solver": "z3"
+        }
+      ],
+      "status": "FALSIFIED"
+    },
+    "c4": {
+      "contract": "TbT induces a unique equilibrium ranked by latent quality, with monotone stabilization.",
+      "counterexample": {
+        "all_delta_nonnegative": true,
+        "all_zero_is_pne": false,
+        "pne_profiles": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "profitable_all_zero_deviation": [
+          0,
+          0.75
+        ],
+        "reason_delta_cancels": "rank compares theta_i+Delta+e_i"
+      },
+      "formal_subclaim": "Proposition 5.3 itself is not contradicted; its antecedent is never true here.",
+      "negative_control": "With c(e)=e and reward gap 0.1, (0,0) is the unique PNE.",
+      "obligations": [
+        {
+          "obligation": "c4_profile_1_0_lower_no_profitable_deviation",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c4_profile_1_1_lower_no_profitable_deviation",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c4_high_already_at_maximum_payoff",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c4_all_zero_has_profitable_deviation",
+          "result": "unsat",
+          "solver": "z3"
+        }
+      ],
+      "status": "FALSIFIED"
+    },
+    "c5": {
+      "assumption_audit": {
+        "C1": "partial_theta v = 1/(2+e+theta)^2 > 0",
+        "C2": "partial_e v > 0, partial_ee v < 0, limit is 1",
+        "C3": "required-effort advantage is piecewise zero, increasing, then the capability gap",
+        "catchup": "always feasible",
+        "cost": "linear, hence nondecreasing, convex, c(0)=0, divergent, and c(e)>=1*e"
+      },
+      "contract": "Under the written generalized scaling assumptions and c(e)>=kappa*e, a stabilizing threshold exists and is O(lambda^gamma).",
+      "counterexample": {
+        "baseline_catchup_infimum": 1,
+        "catchup_infimum_for_every_tbt": 1,
+        "conclusion": "No finite TbT level satisfies c(e_req)>=reward_gap.",
+        "cost": "c(e)=e",
+        "generalized_scaling": {
+          "L(theta)": "theta/(1+theta)",
+          "U(theta)": 1,
+          "alpha(theta)": "-log(1+theta)",
+          "beta(theta)": 1,
+          "gamma": 1
+        },
+        "kappa": 1,
+        "lambda": 2,
+        "reward_gap": 2,
+        "rho": 2,
+        "score": "v(theta,e)=1-1/(2+e+theta)",
+        "theta_domain": "[0,1]"
+      },
+      "interpretation_routes": [
+        "Literal Proposition 5.6: counterexample satisfies its displayed scaling and cost conditions.",
+        "Inherited Assumptions 4.1-4.2: the same continuous family satisfies C1-C3 exactly.",
+        "If alpha(theta) is additionally required to be nondecreasing, the counterexample is excluded and the common-ceiling proof yields the claimed rate."
+      ],
+      "negative_control": "With a common L=0,U=1 and alpha_high=log(2)>alpha_low=0, e_req(Delta)=1+Delta, so reward gap two stabilizes at Delta=1.",
+      "obligations": [
+        {
+          "obligation": "c5_catchup_is_exactly_delta_greater_than_one",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c5_reward_two_always_beats_cost_of_control_deviation",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c5_no_baseline_can_raise_required_cost",
+          "result": "unsat",
+          "solver": "z3"
+        },
+        {
+          "obligation": "c5_monotone_intercept_control_stabilizes_at_one",
+          "result": "unsat",
+          "solver": "z3"
+        }
+      ],
+      "status": "FALSIFIED"
+    }
+  },
+  "paper": "2603.08371v1",
+  "runtime": {
+    "available_affinity_cpus": null,
+    "backend": "local",
+    "estimated_required_cores": 1,
+    "estimated_runtime": "under 5 minutes",
+    "git_sha": "93d5371664a6c4c3cd2048f74a653c2cc3a52615",
+    "host_visible_logical_cpus": 8,
+    "max_rss_kib": 95928320,
+    "mean_cpu_cores_used": 0.9927631544810535,
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "process_cpu_seconds": 0.020845999999999698,
+    "python": "3.12.11",
+    "seed": null,
+    "selected_flavor": null,
+    "wall_seconds": 0.02099795898539014
+  },
+  "verdict_rule": "Any failed proof obligation raises and exits nonzero."
+}

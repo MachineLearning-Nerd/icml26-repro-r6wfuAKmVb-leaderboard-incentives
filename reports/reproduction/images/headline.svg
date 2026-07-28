@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420">
+  <rect width="960" height="420" fill="#fbfaf7"/>
+  <text x="48" y="48" font-family="sans-serif" font-size="26" font-weight="700" fill="#17202a">Five theorem claims now have exact evidence</text>
+  <text x="48" y="76" font-family="sans-serif" font-size="15" fill="#52606d">Scientific verdicts; not a live-judge score</text>
+  <line x1="150" y1="338" x2="900" y2="338" stroke="#8b98a5"/>
+  <g font-family="sans-serif" font-size="15" text-anchor="middle">
+    <rect x="172" y="138" width="82" height="200" rx="6" fill="#238636"/>
+    <text x="213" y="126" fill="#238636" font-weight="700">VERIFIED</text>
+    <text x="213" y="366" fill="#17202a">Claim 1</text>
+    <rect x="292" y="138" width="82" height="200" rx="6" fill="#a40e4c"/>
+    <text x="333" y="126" fill="#a40e4c" font-weight="700">FALSIFIED</text>
+    <text x="333" y="366" fill="#17202a">Claim 2</text>
+    <rect x="412" y="138" width="82" height="200" rx="6" fill="#a40e4c"/>
+    <text x="453" y="126" fill="#a40e4c" font-weight="700">FALSIFIED</text>
+    <text x="453" y="366" fill="#17202a">Claim 3</text>
+    <rect x="532" y="138" width="82" height="200" rx="6" fill="#a40e4c"/>
+    <text x="573" y="126" fill="#a40e4c" font-weight="700">FALSIFIED</text>
+    <text x="573" y="366" fill="#17202a">Claim 4</text>
+    <rect x="652" y="138" width="82" height="200" rx="6" fill="#a40e4c"/>
+    <text x="693" y="126" fill="#a40e4c" font-weight="700">FALSIFIED</text>
+    <text x="693" y="366" fill="#17202a">Claim 5</text>
+    <rect x="772" y="258" width="82" height="80" rx="6" fill="#6e7781"/>
+    <text x="813" y="246" fill="#6e7781" font-weight="700">BLOCKED</text>
+    <text x="813" y="366" fill="#17202a">Claim 6</text>
+  </g>
+  <text x="48" y="404" font-family="sans-serif" font-size="14" fill="#52606d">Previous live score: 5/12 · Conservative forecast: 8–10/12 · Best-supported possible: 10/12</text>
+</svg>

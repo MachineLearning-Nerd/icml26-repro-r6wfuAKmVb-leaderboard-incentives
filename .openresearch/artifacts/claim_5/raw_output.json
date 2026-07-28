@@ -1,0 +1,58 @@
+{
+  "assumption_audit": {
+    "C1": "partial_theta v = 1/(2+e+theta)^2 > 0",
+    "C2": "partial_e v > 0, partial_ee v < 0, limit is 1",
+    "C3": "required-effort advantage is piecewise zero, increasing, then the capability gap",
+    "catchup": "always feasible",
+    "cost": "linear, hence nondecreasing, convex, c(0)=0, divergent, and c(e)>=1*e"
+  },
+  "contract": "Under the written generalized scaling assumptions and c(e)>=kappa*e, a stabilizing threshold exists and is O(lambda^gamma).",
+  "counterexample": {
+    "baseline_catchup_infimum": 1,
+    "catchup_infimum_for_every_tbt": 1,
+    "conclusion": "No finite TbT level satisfies c(e_req)>=reward_gap.",
+    "cost": "c(e)=e",
+    "generalized_scaling": {
+      "L(theta)": "theta/(1+theta)",
+      "U(theta)": 1,
+      "alpha(theta)": "-log(1+theta)",
+      "beta(theta)": 1,
+      "gamma": 1
+    },
+    "kappa": 1,
+    "lambda": 2,
+    "reward_gap": 2,
+    "rho": 2,
+    "score": "v(theta,e)=1-1/(2+e+theta)",
+    "theta_domain": "[0,1]"
+  },
+  "interpretation_routes": [
+    "Literal Proposition 5.6: counterexample satisfies its displayed scaling and cost conditions.",
+    "Inherited Assumptions 4.1-4.2: the same continuous family satisfies C1-C3 exactly.",
+    "If alpha(theta) is additionally required to be nondecreasing, the counterexample is excluded and the common-ceiling proof yields the claimed rate."
+  ],
+  "negative_control": "With a common L=0,U=1 and alpha_high=log(2)>alpha_low=0, e_req(Delta)=1+Delta, so reward gap two stabilizes at Delta=1.",
+  "obligations": [
+    {
+      "obligation": "c5_catchup_is_exactly_delta_greater_than_one",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c5_reward_two_always_beats_cost_of_control_deviation",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c5_no_baseline_can_raise_required_cost",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c5_monotone_intercept_control_stabilizes_at_one",
+      "result": "unsat",
+      "solver": "z3"
+    }
+  ],
+  "status": "FALSIFIED"
+}

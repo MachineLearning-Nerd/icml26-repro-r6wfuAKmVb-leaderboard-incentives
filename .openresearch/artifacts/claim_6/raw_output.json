@@ -1,0 +1,115 @@
+{
+  "assessment": "The exact published vector source is internally reproducible, but the arXiv bundle contains no raw Winogrande measurements, fit parameters, training code, or checkpoints. The underlying empirical fit therefore cannot be independently rerun on authorized CPU compute.",
+  "claim": 6,
+  "negative_control": {
+    "mutated_endpoint": 336584.11455822404,
+    "mutation": "replace the labeled 400000 top tick by 350000",
+    "passes_384668_check": false
+  },
+  "observed_source_reconstruction": 384667.5594951132,
+  "paper_value": 384668,
+  "raw_training_data_present_in_source": false,
+  "routes": [
+    {
+      "absolute_rounding_difference": 0.44050488679204136,
+      "curve_count": 1,
+      "curve_points": 31,
+      "raw_y": 384667.5594951132,
+      "rounded_y": 384668,
+      "route": "direct_vector_coordinate_calibrated_from_labeled_ticks",
+      "x": 3000,
+      "x_tick_count": 7,
+      "y_tick_count": 9
+    },
+    {
+      "degree_sensitivity": [
+        {
+          "absolute_error": 5844.697205307137,
+          "degree": 3,
+          "prediction": 378822.8622898061
+        },
+        {
+          "absolute_error": 1023.928757721209,
+          "degree": 4,
+          "prediction": 383643.630737392
+        },
+        {
+          "absolute_error": 207.13488913612673,
+          "degree": 5,
+          "prediction": 384460.4246059771
+        },
+        {
+          "absolute_error": 18.76338322990341,
+          "degree": 6,
+          "prediction": 384648.7961118833
+        }
+      ],
+      "direct_vector_endpoint": 384667.5594951132,
+      "held_out_x": 3000,
+      "prediction": 384648.7961118833,
+      "relative_error": 0.00004877817940907434,
+      "route": "endpoint_blind_extrapolation",
+      "selected_degree_declared_before_endpoint_check": 6,
+      "training_points": 30
+    },
+    {
+      "occurrences": {
+        "Sections/equilibrium.tex": 1,
+        "Sections/introv2.tex": 1,
+        "Sections/tune-before-test.tex": 1
+      },
+      "quantifiers": {
+        "batch_size": 8,
+        "benchmark": "Winogrande",
+        "models": [
+          "Qwen2.5-0.5B",
+          "1.5B",
+          "3B",
+          "7B",
+          "14B"
+        ],
+        "reported_minimum_additional_steps": 384668,
+        "tbt_steps": 3000,
+        "training_range": [
+          0,
+          3000
+        ]
+      },
+      "route": "independent_tex_anchor_consistency",
+      "total_occurrences": 3
+    },
+    {
+      "alternate_curve_found": false,
+      "assumptions_checked": [
+        "the plotted path is the unique red 30-segment Figure 1 curve",
+        "axis labels map 0 through 400000 in 50000 increments",
+        "the endpoint is at TbT 3000",
+        "the source bundle and figure hashes match the audited revision"
+      ],
+      "axis_tick_count": 9,
+      "coordinate_contradiction_found": false,
+      "endpoint": 384667.5594951132,
+      "restated_claim": "The fitted Winogrande trajectories imply that at common TbT 3000, the minimum adjacent additional effort is at least 384668 steps.",
+      "route": "dedicated_falsification",
+      "valid_falsification_found": false
+    }
+  ],
+  "runtime": {
+    "backend": "local",
+    "estimated_required_cores": 1,
+    "estimated_runtime": "under 5 minutes",
+    "mean_cpu_cores_used": 0.09618311934179904,
+    "process_cpu_seconds": 0.051196999999999715,
+    "seed": null,
+    "selected_flavor": null,
+    "wall_seconds": 0.532286750007188
+  },
+  "source": {
+    "bundle_sha256": "9f6d8668713011bee867b6c83a8e88a5f6b9cec201cc1806a30c891b11106ae8",
+    "figure_sha256": "aa814bc7a08fe91b8ecc7ef5d0e079dea28fd9aa74b8cb6107c6d76608078032",
+    "retrieval_user_agent": "OpenResearch-Reproduction/1.0 (paper audit; contact via github.com/MachineLearning-Nerd)",
+    "url": "https://export.arxiv.org/e-print/2603.08371"
+  },
+  "status": "BLOCKED",
+  "unblocker": "Author Winogrande per-checkpoint measurements and fit parameters, or CPU-feasible published logits/checkpoints sufficient to recreate them."
+}

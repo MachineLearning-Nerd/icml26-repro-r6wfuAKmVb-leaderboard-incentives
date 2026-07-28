@@ -1,0 +1,49 @@
+{
+  "contract": "There exists a paper-admissible continuous follower game with no PNE.",
+  "negative_control": "With reward gap 1/4 below catch-up effort 1/2, (0,0) is a PNE.",
+  "obligations": [
+    {
+      "obligation": "c1_high_wins_above_boundary_can_reduce",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c1_high_wins_at_low_boundary_is_overtaken",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c1_high_wins_at_positive_boundary_is_overtaken",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c1_low_wins_middle_high_can_tie_and_win",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c1_low_wins_high_can_reduce",
+      "result": "unsat",
+      "solver": "z3"
+    },
+    {
+      "obligation": "c1_negative_control_zero_is_pne",
+      "result": "unsat",
+      "solver": "z3"
+    }
+  ],
+  "parameters": {
+    "cost": "e",
+    "rewards": [
+      1,
+      0
+    ],
+    "score": "1-exp(-(theta+e))",
+    "theta_high": 1,
+    "theta_low": 0.5,
+    "tie_break": "higher capability"
+  },
+  "proof": "Exhaustive partition of every nonnegative effort pair: high-capability winner above/boundary cases and low-capability winner middle/high cases.",
+  "status": "VERIFIED"
+}

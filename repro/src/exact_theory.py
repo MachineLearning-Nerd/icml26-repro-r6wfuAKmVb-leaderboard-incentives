@@ -6,6 +6,7 @@ import os
 import platform
 import resource
 import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -377,7 +378,8 @@ def run_exact_theory() -> dict:
         "wall_seconds": wall_seconds,
         "process_cpu_seconds": process_cpu_seconds,
         "mean_cpu_cores_used": process_cpu_seconds / wall_seconds,
-        "max_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "max_rss_native": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "max_rss_native_unit": "bytes" if sys.platform == "darwin" else "KiB",
         "git_sha": git_sha,
         "seed": None,
     }
