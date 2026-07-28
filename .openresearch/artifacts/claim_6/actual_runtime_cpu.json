@@ -1,11 +1,11 @@
 {
-  "run_id": "7edf2d16-e61f-4a50-8c08-3fa3f022006a",
+  "run_id": "520b3579-596a-4b3f-85f6-8c2fbf0ed498",
   "backend": "local",
   "estimated_required_cores": 1,
   "estimated_runtime": "under 5 minutes",
-  "mean_cpu_cores_used": 0.06035802755522491,
-  "process_cpu_seconds": 0.036831999999999976,
+  "mean_cpu_cores_used": 0.1496175432914142,
+  "process_cpu_seconds": 0.03585600000000033,
   "seed": null,
   "selected_flavor": null,
-  "wall_seconds": 0.6102253750141244
+  "wall_seconds": 0.23965104098897427
 }

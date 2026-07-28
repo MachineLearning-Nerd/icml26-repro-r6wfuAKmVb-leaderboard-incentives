@@ -1,7 +1,7 @@
 # Current verification run
 
 The tested current verifier is [`repro/src/verify.py`](/repro/src/verify.py) at
-Git SHA `8f8494d23146f77a0ed25520f32e9574df9e43be`. It supersedes the old
+Git SHA `c6a0bf6f518b8b8506f75deaee14d2604179ef54`. It supersedes the old
 finite-grid verifier under **Historical rejected baseline**.
 
 ```bash
@@ -17,7 +17,7 @@ implemented readers validate the raw JSON, verdicts, calibration bounds, and
 negative controls. Any mismatch exits nonzero.
 
 The successful cumulative run
-`7edf2d16-e61f-4a50-8c08-3fa3f022006a` printed:
+`520b3579-596a-4b3f-85f6-8c2fbf0ed498` printed:
 
 ```text
 EXACT_SUMMARY {"c1":"VERIFIED","c2":"FALSIFIED","c3":"FALSIFIED","c4":"FALSIFIED","c5":"FALSIFIED"}
@@ -51,9 +51,9 @@ All historical claim 1–5 regressions also printed `PASS`.
 ## Compute
 
 Both components were estimated at one core and under five minutes and therefore
-used the authorized local backend. The theorem component used 0.01955 seconds
-wall and 0.9906 mean CPU core. Figure reconstruction used 0.61023 seconds wall
-and 0.06036 mean core. Selected remote flavor: none. Hugging Face compute cost:
+used the authorized local backend. The theorem component used 0.02027 seconds
+wall and 0.9880 mean CPU core. Figure reconstruction used 0.23965 seconds wall
+and 0.1496 mean core. Selected remote flavor: none. Hugging Face compute cost:
 zero. GPU use: none.
 
 ## Limitation

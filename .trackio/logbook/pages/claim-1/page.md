@@ -22,9 +22,9 @@ catch-up effort `1/2`, makes `(0,0)` a PNE. The control obligation is also
 [control output](/evidence/claim_1/negative_control_output.txt);
 [runtime](/evidence/claim_1/actual_runtime_cpu.json).
 
-Tested SHA: `8f8494d23146f77a0ed25520f32e9574df9e43be`.
+Tested SHA: `c6a0bf6f518b8b8506f75deaee14d2604179ef54`.
 Deterministic, no seed. Local CPU, estimated one core and under five minutes;
-actual shared theorem suite 0.01955 seconds and 0.9906 mean core.
+actual shared theorem suite 0.02027 seconds and 0.9880 mean core.
 
 **Limitation.** This verifies the exact existential claim with one complete
 continuous-domain witness; it does not assert that every admitted game lacks a

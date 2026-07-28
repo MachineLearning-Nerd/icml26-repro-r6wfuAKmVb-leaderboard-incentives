@@ -98,11 +98,11 @@
     "backend": "local",
     "estimated_required_cores": 1,
     "estimated_runtime": "under 5 minutes",
-    "mean_cpu_cores_used": 0.06035802755522491,
-    "process_cpu_seconds": 0.036831999999999976,
+    "mean_cpu_cores_used": 0.1496175432914142,
+    "process_cpu_seconds": 0.03585600000000033,
     "seed": null,
     "selected_flavor": null,
-    "wall_seconds": 0.6102253750141244
+    "wall_seconds": 0.23965104098897427
   },
   "source": {
     "bundle_sha256": "9f6d8668713011bee867b6c83a8e88a5f6b9cec201cc1806a30c891b11106ae8",

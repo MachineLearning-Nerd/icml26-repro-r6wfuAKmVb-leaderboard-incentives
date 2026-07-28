@@ -44,7 +44,7 @@ Source bundle SHA-256:
 `9f6d8668713011bee867b6c83a8e88a5f6b9cec201cc1806a30c891b11106ae8`.
 Figure SHA-256:
 `aa814bc7a08fe91b8ecc7ef5d0e079dea28fd9aa74b8cb6107c6d76608078032`.
-Tested SHA: `8f8494d23146f77a0ed25520f32e9574df9e43be`.
+Tested SHA: `c6a0bf6f518b8b8506f75deaee14d2604179ef54`.
 
 Unblocker: author per-checkpoint measurements and fit configuration, or
 published CPU-feasible logits/checkpoints sufficient to recreate them.

@@ -25,5 +25,5 @@ the inverted profile is no longer a PNE.
 [control](/evidence/claim_2/negative_control_output.txt);
 [limitations](/evidence/claim_2/limitations.md).
 
-Tested SHA: `8f8494d23146f77a0ed25520f32e9574df9e43be`.
-Deterministic local CPU; shared theorem runtime 0.01955 seconds.
+Tested SHA: `c6a0bf6f518b8b8506f75deaee14d2604179ef54`.
+Deterministic local CPU; shared theorem runtime 0.02027 seconds.

@@ -40,14 +40,14 @@ scaling parameters and the interpretation caveat.
 
 ## Formal run
 
-The cumulative run used commit
-`8f8494d23146f77a0ed25520f32e9574df9e43be`, run id
-`7edf2d16-e61f-4a50-8c08-3fa3f022006a`, and the fixed command above.
+The final publication-gate run used commit
+`c6a0bf6f518b8b8506f75deaee14d2604179ef54`, run id
+`520b3579-596a-4b3f-85f6-8c2fbf0ed498`, and the fixed command above.
 All five historical regressions passed, all exact Z3 obligations were `unsat`,
 and both independent checkers printed `PASS`.
 
-- Theorem suite: 0.01955 s wall, 0.01937 s process CPU, 0.9906 mean core.
-- Figure route: 0.61023 s wall, 0.03683 s process CPU, 0.06036 mean core.
+- Theorem suite: 0.02027 s wall, 0.02002 s process CPU, 0.9880 mean core.
+- Figure route: 0.23965 s wall, 0.03586 s process CPU, 0.1496 mean core.
 - Selected backend/flavor: local / none.
 - Pre-run estimate: one core and under five minutes.
 - Seeds: none; all checks are deterministic.

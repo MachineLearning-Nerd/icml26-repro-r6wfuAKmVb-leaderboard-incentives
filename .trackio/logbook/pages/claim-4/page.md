@@ -24,6 +24,6 @@ same reward gap, removing both nonzero equilibria.
 [control](/evidence/claim_4/negative_control_output.txt);
 [limitations](/evidence/claim_4/limitations.md).
 
-Tested SHA: `8f8494d23146f77a0ed25520f32e9574df9e43be`.
+Tested SHA: `c6a0bf6f518b8b8506f75deaee14d2604179ef54`.
 Confidence is MEDIUM because the imported claim combines the aggregate
 uniqueness language with a narrower formal proposition.

@@ -112,8 +112,8 @@ authors’ undisclosed data choices. Claim 6 is therefore BLOCKED, not VERIFIED.
 - Independent checkers: [`repro/src/check_exact_theory.py`](../../repro/src/check_exact_theory.py) and [`repro/src/check_claim6.py`](../../repro/src/check_claim6.py)
 - Pinned environment: [`uv.lock`](../../uv.lock)
 
-No stochastic seeds are used. The winning cumulative formal run used 0.991 mean
-CPU core for the theorem checks and 0.096 mean CPU core for the 0.53-second
+No stochastic seeds are used. The winning cumulative formal run used 0.988 mean
+CPU core for the theorem checks and 0.150 mean CPU core for the 0.24-second
 Figure route. All formal compute was local because each task was estimated at
 one core and under five minutes; no GPU or Hugging Face compute was used.
 

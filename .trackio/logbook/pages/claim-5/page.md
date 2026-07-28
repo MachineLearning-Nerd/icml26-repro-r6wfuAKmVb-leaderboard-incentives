@@ -33,4 +33,4 @@ because a reviewer may import the unstated sufficient condition.
 [checker PASS](/evidence/claim_5/checker_output.txt);
 [control](/evidence/claim_5/negative_control_output.txt).
 
-Tested SHA: `8f8494d23146f77a0ed25520f32e9574df9e43be`.
+Tested SHA: `c6a0bf6f518b8b8506f75deaee14d2604179ef54`.

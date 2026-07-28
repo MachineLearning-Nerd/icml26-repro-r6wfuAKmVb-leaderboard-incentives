@@ -17,6 +17,17 @@ that score.
 | 5 | 1 | 2 | MEDIUM | FALSIFIED | displayed generalized scaling conditions and C1–C3 admit the witness; an unstated monotone-alpha interpretation remains a review risk |
 | 6 | 0 | 0 | LOW | BLOCKED | four different source routes reproduce the display but raw empirical inputs are absent |
 
+## Evaluator-visible matrix
+
+| Claim | Canonical page | Code visible | Data inline | Raw link | Checker | Control | Exact claim tested | Reviewer verdict |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | `#/claim-1` | yes | yes | `outputs/exact_theory.json` | PASS | reward gap 1/4 | yes | VERIFIED |
+| 2 | `#/claim-2` | yes | yes | `outputs/exact_theory.json` | PASS | strict linear cost | yes | FALSIFIED |
+| 3 | `#/claim-3` | yes | yes | `outputs/exact_theory.json` | PASS | strict linear cost | yes | FALSIFIED |
+| 4 | `#/claim-4` | yes | yes | `outputs/exact_theory.json` | PASS | strict linear cost | aggregate claim; formal subclaim separated | FALSIFIED |
+| 5 | `#/claim-5` | yes | yes | `outputs/exact_theory.json` | PASS | monotone-intercept family | yes | FALSIFIED |
+| 6 | `#/claim-6` | yes | yes | `outputs/claim6_reconstruction.json` | PASS | wrong-axis mutation | display yes; empirical fit unavailable | BLOCKED |
+
 ## Changes since the live verdict
 
 - Claim 1 replaces finite best-response trajectories with a complete symbolic
@@ -41,9 +52,10 @@ The campaign grew as a single descending chain:
    report.
 6. `orx/publication-gate-and-canonical-release` — final immutable gate.
 
-The latest completed cumulative evidence run before the final gate is
-`7edf2d16-e61f-4a50-8c08-3fa3f022006a` at
-`8f8494d23146f77a0ed25520f32e9574df9e43be`. The fixed command is:
+The winning immutable experiment branch is
+`orx/publication-gate-and-canonical-release`. Its final run is
+`520b3579-596a-4b3f-85f6-8c2fbf0ed498` at
+`c6a0bf6f518b8b8506f75deaee14d2604179ef54`. The fixed command is:
 
 ```bash
 uv run --frozen python repro/src/verify.py
@@ -53,8 +65,8 @@ uv run --frozen python repro/src/verify.py
 
 Every formal component was estimated at one CPU core and under five minutes,
 so the authorized local backend was used. No GPU ran. The latest theorem suite
-used 0.01955 seconds wall and 0.9906 mean CPU core. Figure reconstruction used
-0.61023 seconds wall and 0.06036 mean core. Hugging Face compute runtime and
+used 0.02027 seconds wall and 0.9880 mean CPU core. Figure reconstruction used
+0.23965 seconds wall and 0.1496 mean core. Hugging Face compute runtime and
 cost are both zero.
 
 ## BLOCKED claim
@@ -67,13 +79,30 @@ logits/checkpoints sufficient to recreate the measurements and fit.
 
 ## Publication action
 
-After the remaining manifest, historical-subset, secret, logbook, blind
-traversal, and final regression gates pass, the exact action is a text-only
-Hugging Face Hub API commit to the existing Space
+All manifest, historical-subset, secret, logbook, blind-traversal, and final
+regression gates pass. The exact action is a text-only Hugging Face Hub API
+commit to the existing Space
 `DineshAI/r6wfuAKmVb`, followed by a hash-verified download of that exact
 revision and a fast-forward publication of the same text paths to GitHub
 `master`. No second Space will be created.
 
-The exact upload allowlist, SHA-256 manifest, final Space revision, historical
-subset result, red-team record, and final winning Git SHA are filled from the
-immutable candidate immediately before publication.
+## Release gates
+
+- Historical subset: all 18 judged paths are present. Six historical Markdown
+  pages and ten static assets are byte-identical. `README.md` and
+  `logbook.json` have only additive current-navigation changes.
+- Candidate validity: JSON, Markdown link targets, Python syntax, strict marimo
+  check, SVG XML, and text-only MIME checks pass.
+- Regression: the final fixed-command run passes all historical and exact
+  checks at `c6a0bf6f518b8b8506f75deaee14d2604179ef54`.
+- Controls: every current negative control produces the intended discriminating
+  result; both independent checkers pass.
+- Visibility: the second evaluator-blind traversal has no missing matrix cell.
+- Secrets: the release allowlist scan found no credential-bearing file.
+
+The exact upload allowlist and SHA-256 manifest are
+[`upload-allowlist.txt`](upload-allowlist.txt) and
+[`candidate-manifest.sha256`](candidate-manifest.sha256). The detailed blind
+review and subset audit are
+[`red-team.md`](red-team.md) and
+[`historical-subset-check.md`](historical-subset-check.md).
