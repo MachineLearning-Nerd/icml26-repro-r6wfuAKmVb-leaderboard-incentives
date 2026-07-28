@@ -24,7 +24,7 @@ because the arXiv bundle omits the raw Winogrande measurements and fit
 parameters. The Figure 1 vector itself reconstructs as
 `384667.559495 → 384668`.
 
-[Open the canonical current logbook](https://dineshai-r6wfuakmvb.hf.space/#/current-index).
+[Open the canonical current logbook](https://dineshai-r6wfuakmvb.static.hf.space/#/current-index).
 The previous live judged score remains **5/12**; `8–10/12` is a forecast, not a
 new judge result.
 
