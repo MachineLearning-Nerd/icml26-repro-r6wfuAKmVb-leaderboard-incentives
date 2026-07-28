@@ -53,7 +53,7 @@ def route_1_vector_endpoint(pdf_blob: bytes) -> tuple[dict, list[float], list[fl
     curves = [
         drawing
         for drawing in drawings
-        if math.isclose(drawing.get("width", 0), 4.0)
+        if math.isclose(drawing.get("width") or 0, 4.0)
         and drawing.get("color")
         and drawing["color"][0] > 0.8
         and len(drawing["items"]) == 30
@@ -74,7 +74,7 @@ def route_1_vector_endpoint(pdf_blob: bytes) -> tuple[dict, list[float], list[fl
         drawing["rect"].y0
         for drawing in drawings
         if drawing.get("color") == (0.0, 0.0, 0.0)
-        and math.isclose(drawing.get("width", 0), 0.8, abs_tol=1e-5)
+        and math.isclose(drawing.get("width") or 0, 0.8, abs_tol=1e-5)
         and math.isclose(drawing["rect"].y0, drawing["rect"].y1, abs_tol=1e-5)
         and math.isclose(drawing["rect"].x1 - drawing["rect"].x0, 3.5, abs_tol=1e-3)
     )
