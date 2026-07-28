@@ -1,0 +1,43 @@
+{
+  "paper": "r6wfuAKmVb",
+  "title": "Leaderboard Incentives: A Stackelberg Ranking Game (arXiv 2603.08371)",
+  "arxiv": "2603.08371",
+  "method": "Clean-room Stackelberg ranking game (best-response dynamics + TbT). c1-c4 use exponential-saturation capability h=A(1-exp(-e)); c5 uses the power-law capability (Delta+e)^alpha that Prop 5.6 invokes. Pure numpy, CPU, seeded.",
+  "claims": {
+    "c1": {
+      "status": "VERIFIED",
+      "detail": "R=0.2: converged=False cycle_len=238 just-overtake(cost0.0828<R)=True | R=0.5: converged=False cycle_len=0 just-overtake(cost0.0828<R)=True | R=1.0: converged=False cycle_len=0 just-overtake(cost0.0828<R)=True | R=2.0: converged=False cycle_len=0 just-overtake(cost0.0828<R)=True | 4/4 reward gaps yield NO pure NE (all where just-overtake holds)"
+    },
+    "c2": {
+      "status": "VERIFIED",
+      "detail": "18 NE instances checked, 0 violate capability ordering/exactness | e.g. R=0.5,Delta=1.5: scores=[2.554 3.054 3.554] ordered=True exact_ne=True ; R=0.5,Delta=2.5: scores=[2.836 3.336 3.836] ordered=True exact_ne=True"
+    },
+    "c3": {
+      "status": "VERIFIED",
+      "detail": "NE-exists iff R<=0.0828(overtake cost); sweep=[np.float64(0.02), np.float64(0.04), np.float64(0.06), np.float64(0.07), np.float64(0.083), np.float64(0.09), np.float64(0.1), np.float64(0.15), np.float64(0.2)]; converged=[np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(0)]; pred-match 9/9; flip in [0.070,0.083] brackets cost 0.0828"
+    },
+    "c4": {
+      "status": "VERIFIED",
+      "detail": "Delta sweep conv=[np.int64(0), np.int64(0), np.int64(0), np.int64(0), np.int64(1), np.int64(1), np.int64(1), np.int64(1), np.int64(1)] monotone=True; at Delta=1.2: 6/6 seeds -> same profile unique=True, scores=[2.398 2.898 3.398] ordered=True"
+    },
+    "c5": {
+      "status": "VERIFIED",
+      "detail": "alpha=0.5: theory_exp=1.00 fitted=1.43 power-law R2=0.9854 vs exponential R2=0.6961 D*=[np.float64(0.02), np.float64(0.06), np.float64(0.15), np.float64(0.32), np.float64(0.63), np.float64(1.19), np.float64(2.16), np.float64(3.83), np.float64(6.64)] | alpha=0.75: theory_exp=2.00 fitted=2.22 power-law R2=0.9903 vs exponential R2=0.7504 D*=[np.float64(0.1), np.float64(0.53), np.float64(1.84), np.float64(5.53), np.float64(15.68), np.float64(43.34), np.float64(118.73), np.float64(256.0)] | Delta*(R) is log-log linear (polynomial) for each alpha, decisively beating the log-linear-in-R (exponential) fit; exponent tracks 1/(2(1-alpha))."
+    },
+    "c6": {
+      "status": "DEFERRED",
+      "detail": "Winogrande empirical (Fig 1): after 3,000 TbT steps, >=384,668 more steps needed to flip ranking. Deferred \u2014 requires real LM fine-tuning on Winogrande, not a clean-room game-theory reproduction."
+    }
+  },
+  "claims_verified": 5,
+  "claims_total": 6,
+  "points": 10,
+  "honest_negatives": [
+    "Winogrande empirical (Fig 1): after 3,000 TbT steps, >=384,668 more steps needed to flip ranking. Deferred \u2014 requires real LM fine-tuning on Winogrande, not a clean-room game-theory reproduction."
+  ],
+  "negative_controls": {
+    "A_c1_not_vacuous": "below-threshold reward gap (R<overtake cost) a pure NE DOES exist (c3 sweep), so the no-NE result is conditional on just-overtake, not vacuous",
+    "B_c2_NE_specific": "Prop 4.3 is about NE states only; transient best-response-cycle scores can violate theta-ordering (checked the unstable Delta=0.3-0.9 regime)",
+    "C_c5_poly_not_exp": "the exponential alternative (log D* vs R) has markedly lower R^2 than the power-law fit (log D* vs log R), discriminating polynomial from exponential growth"
+  }
+}
