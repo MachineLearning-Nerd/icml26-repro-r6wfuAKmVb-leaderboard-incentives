@@ -1,0 +1,15 @@
+{
+  "claim": 2,
+  "paper_anchor": "Section 4, Proposition 4.3",
+  "quantifier": "For every admitted game, every TbT level, every PNE, and every capability-ordered pair, equilibrium scores preserve capability order up to ties.",
+  "verdict_target": "FALSIFIED",
+  "counterexample": {
+    "capabilities": [1, 0.5],
+    "efforts": [0, 0.75],
+    "score": "1-exp(-(theta+e))",
+    "cost": "max(e-1,0)^2",
+    "rewards": [1, 1]
+  },
+  "acceptance": "All written assumptions hold, the profile is a PNE, and the lower-capability score is strictly larger.",
+  "failure": "Any assumption, PNE condition, or strict ranking inversion fails."
+}

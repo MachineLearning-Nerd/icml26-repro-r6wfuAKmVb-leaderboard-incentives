@@ -8,41 +8,54 @@
     "icml2026-repro",
     "paper-r6wfuAKmVb"
   ],
-  "updated_at": "2026-07-28T08:42:52+00:00",
+  "updated_at": "2026-07-28T12:00:00+00:00",
   "root": {
-    "slug": "index",
-    "title": "Repro - Leaderboard Incentives: A Stackelberg Ranking Game",
-    "file": "pages/index.md",
+    "slug": "current-index",
+    "title": "Current exact verification",
+    "file": "pages/current-index/page.md",
     "children": [
       {
-        "slug": "overview",
-        "title": "Overview",
-        "file": "pages/overview/page.md",
+        "slug": "current-verification",
+        "title": "Current verification run",
+        "file": "pages/current-verification/page.md",
         "children": []
       },
       {
-        "slug": "claims",
-        "title": "Claims",
-        "file": "pages/claims/page.md",
-        "children": []
-      },
-      {
-        "slug": "evidence",
-        "title": "Evidence",
-        "file": "pages/evidence/page.md",
-        "children": []
-      },
-      {
-        "slug": "conclusion",
-        "title": "Conclusion",
-        "file": "pages/conclusion/page.md",
-        "children": []
-      },
-      {
-        "slug": "verification-run",
-        "title": "Verification run",
-        "file": "pages/verification-run/page.md",
-        "children": []
+        "slug": "historical-rejected-baseline",
+        "title": "Historical rejected baseline",
+        "file": "pages/index.md",
+        "children": [
+          {
+            "slug": "overview",
+            "title": "Historical overview",
+            "file": "pages/overview/page.md",
+            "children": []
+          },
+          {
+            "slug": "claims",
+            "title": "Historical claims",
+            "file": "pages/claims/page.md",
+            "children": []
+          },
+          {
+            "slug": "evidence",
+            "title": "Historical evidence",
+            "file": "pages/evidence/page.md",
+            "children": []
+          },
+          {
+            "slug": "conclusion",
+            "title": "Historical conclusion",
+            "file": "pages/conclusion/page.md",
+            "children": []
+          },
+          {
+            "slug": "verification-run",
+            "title": "Historical verification run",
+            "file": "pages/verification-run/page.md",
+            "children": []
+          }
+        ]
       }
     ]
   },

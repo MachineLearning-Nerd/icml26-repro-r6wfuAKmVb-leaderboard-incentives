@@ -1,0 +1,15 @@
+{
+  "claim": 1,
+  "paper_anchor": "Abstract; Section 3; Theorem 4.6 provides the mechanism",
+  "quantifier": "There exists a paper-admissible follower game with no pure-strategy Nash equilibrium.",
+  "verdict_target": "VERIFIED",
+  "witness": {
+    "capabilities": [1, 0.5],
+    "score": "1-exp(-(theta+e))",
+    "cost": "e",
+    "rewards": [1, 0],
+    "tie_break": "higher capability"
+  },
+  "acceptance": "An exhaustive exact partition covers every nonnegative effort profile and proves a profitable unilateral deviation in every case.",
+  "failure": "Any symbolic proof obligation is satisfiable or unknown."
+}

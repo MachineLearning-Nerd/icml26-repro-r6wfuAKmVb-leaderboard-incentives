@@ -1,0 +1,9 @@
+{
+  "claim": 5,
+  "paper_anchor": "Section 5, Proposition 5.6",
+  "quantifier": "For the full generalized scaling family with c(e)>=kappa*e, a stabilizing pairwise TbT threshold exists and is O(lambda^gamma) where catch-up remains feasible.",
+  "verdict_target": "BLOCKED",
+  "partial_result": "Exact derivation for the common-ceiling feasible branch, finite-infeasibility case split, and formula-independent binary-search calibration.",
+  "acceptance": "A proof covers every allowed model-specific L(theta), U(theta), or an assumption-satisfying counterexample is found.",
+  "failure": "Only a special family or formula-selected numerical sweep is covered."
+}
