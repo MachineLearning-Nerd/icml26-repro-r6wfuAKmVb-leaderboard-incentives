@@ -45,3 +45,15 @@ effort `1+Delta` and stabilizes at `Delta=1`.
 
 The formal run has not yet completed on this branch. Until raw output and the
 independent checker result are captured here, this page is **not release-ready**.
+
+## Figure 1 reconstruction
+
+The claim-6 verifier retrieves the exact arXiv source bundle, verifies its hash,
+and calibrates the unique right-panel vector path from the labeled tick marks.
+Its expected endpoint at TbT 3,000 is 384,667.56, rounding to 384,668. An
+endpoint-blind extrapolation from the preceding 30 vector points, three
+independent TeX anchors, and a falsification search provide separate checks.
+
+This remains BLOCKED as an empirical reproduction because the source archive
+does not include the underlying Winogrande measurements or fit parameters. The
+published display is reproducible; the training-and-fit pipeline is not.

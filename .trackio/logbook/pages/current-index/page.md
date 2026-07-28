@@ -21,7 +21,7 @@ Every failed proof obligation raises an exception, so the command exits nonzero.
 | 3 | Theorem 4.6: just-overtake inequality implies no PNE | Assumption-satisfying exact counterexample to the all-zero-only step | FALSIFIED |
 | 4 | The abstract/Section 5 unique-equilibrium conclusion, together with Proposition 5.3 monotonicity | Two distinct nonzero PNE persist at every TbT level; formal Proposition 5.3 alone is not contradicted | FALSIFIED |
 | 5 | Proposition 5.6: a stabilizing threshold exists and is `O(lambda^gamma)` over the generalized scaling family | Exact continuous counterexample with model-specific lower bound and constant catch-up effort | FALSIFIED |
-| 6 | Figure 1: Winogrande fit gives 384,668 additional steps at TbT 3,000 | Not part of this theorem-contract node | BLOCKED |
+| 6 | Figure 1: Winogrande fit gives 384,668 additional steps at TbT 3,000 | Four-route hashed-source reconstruction; raw measurements and fit parameters absent | BLOCKED |
 
 ## Shared assumptions and numerical audit
 
@@ -50,6 +50,7 @@ not a grid or best-response trajectory.
   `.openresearch/artifacts/claim_1/claim_contract.json` through
   `.openresearch/artifacts/claim_5/claim_contract.json`
 - Raw output: `outputs/exact_theory.json` after the fixed command
+- Claim 6 raw reconstruction: `outputs/claim6_reconstruction.json`
 - Compact verdict: `outputs/verdict.json`
 
 The current run page records checker/control output, Git SHA, CPU allocation,
@@ -64,7 +65,7 @@ runtime, limitations, and deviations after the formal experiment completes.
 | 3 | This page | yes | counterexample inline | `outputs/exact_theory.json` | independent | strict linear cost | yes | pending formal run |
 | 4 | This page | yes | two PNE inline | `outputs/exact_theory.json` | independent | strict linear cost | aggregate claim; formal subclaim separated | pending formal run |
 | 5 | This page | yes | counterexample inline | `outputs/exact_theory.json` | independent | monotone-intercept family stabilizes | yes | pending formal run |
-| 6 | This page | not yet | no | no | no | no | no | BLOCKED |
+| 6 | This page | yes | 384,667.56 → 384,668 | `outputs/claim6_reconstruction.json` | independent | wrong-axis mutation | source display yes; empirical fit no | BLOCKED |
 
 This is a research candidate, not a live-judge result. The previous live judged
 score remains **5/12**.

@@ -1,0 +1,10 @@
+{
+  "claim": 6,
+  "paper_anchor": "Figure 1 caption; Section 5.1; Introduction",
+  "quantifier": "For Qwen2.5 0.5B, 1.5B, 3B, 7B, and 14B fitted Winogrande trajectories, the minimum adjacent additional effort at TbT=3000 is at least 384668 training steps.",
+  "verdict_target": "BLOCKED",
+  "paper_value": 384668,
+  "acceptance": "Independently regenerate the fitted value from raw per-checkpoint Winogrande measurements and disclosed fitting choices, or find a valid contradictory reconstruction from those data.",
+  "partial_acceptance": "Reconstruct the exact displayed coordinate from the hashed vector source and verify its source anchors.",
+  "failure": "Treating the plotted endpoint itself as an independent rerun of the underlying training and fit."
+}

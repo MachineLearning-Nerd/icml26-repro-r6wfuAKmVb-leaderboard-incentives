@@ -230,9 +230,11 @@ def main():
         cid: {"status": row["status"], "detail": row["contract"]}
         for cid, row in exact["claims"].items()
     }
+    from claim6_figure import run_claim_6
+    claim_6 = run_claim_6()
     results["c6"] = {
-        "status": "BLOCKED",
-        "detail": "Figure 1 trajectory reconstruction is handled in the next experiment round.",
+        "status": claim_6["status"],
+        "detail": claim_6["assessment"],
     }
     verdict = {
         "paper": "r6wfuAKmVb",
@@ -259,7 +261,10 @@ def main():
     from check_exact_theory import main as independent_check
     if independent_check() != 0:
         raise SystemExit(1)
-    print("\n=== exact claims 1-5 complete; claim 6 BLOCKED in this node ===")
+    from check_claim6 import main as independent_claim6_check
+    if independent_claim6_check() != 0:
+        raise SystemExit(1)
+    print("\n=== exact claims 1-5 complete; claim 6 source reconstruction complete but BLOCKED ===")
     print("verdict -> outputs/verdict.json")
 
 
